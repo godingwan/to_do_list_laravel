@@ -2,7 +2,7 @@
 
 class ItemController extends BaseController
 {
-  public function showIndex()
+  public function getIndex()
   {
     return View::make('item/index');
   }
