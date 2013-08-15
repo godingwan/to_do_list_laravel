@@ -16,7 +16,4 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('/todo', function()
-{
-  return View::make('todo');
-});
+Route::get('index', 'ItemController@showIndex');
