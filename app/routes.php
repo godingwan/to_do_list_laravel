@@ -16,4 +16,4 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::controller('items', 'ItemController');
+Route::resource('items', 'ItemController');
