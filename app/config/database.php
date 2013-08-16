@@ -55,9 +55,10 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
+			'unix_socket' => '/Applications/MAMP/tmp/mysql/mysql.sock',
 			'database'  => 'database',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => 'root',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
