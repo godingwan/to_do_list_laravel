@@ -4,7 +4,7 @@
 
   <h1>To Do List</h1>
 
-  @if (false)
+  @if ($items)
     @foreach($items as $item)
       <p>{{ $item->title }}</p>
     @endforeach
