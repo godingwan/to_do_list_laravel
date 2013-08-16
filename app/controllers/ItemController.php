@@ -75,4 +75,12 @@ class ItemController extends BaseController
       ->withErrors($v)
       ->with('message', 'There were validation errors.');
   }
+
+  public function destroy($id)
+  {
+    $this->item->find($id)->delete();
+
+    return Redirect::route('items.index')
+      ->with('message', 'Item successfully deleted');
+  }
 }

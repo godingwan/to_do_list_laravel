@@ -11,9 +11,13 @@
       @foreach($items as $item)
         <li>{{ $item->title }}</li>
         <div>{{ link_to_route('items.edit', 'Edit', array($item->id)) }}</div>
+        <div>
+          {{ Form::open(array('method' => 'DELETE', 'route' => array('items.destroy', $item->id))) }}
+            {{ Form::submit('Delete') }}
+          {{ Form::close() }}
+        </div>
       @endforeach
     </ol>
-
   @else
     <p>Add an item to the list.</p>
   @endif
