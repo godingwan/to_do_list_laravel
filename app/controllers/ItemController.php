@@ -38,6 +38,41 @@ class ItemController extends BaseController
       return Redirect::route('items.index');
     }
 
-    return Redirect::route('items.create');
+    return Redirect::route('items.create')
+      ->withInput()
+      ->withErrors($v)
+      ->with('message', 'There were validation errors.');
+  }
+
+  public function edit($id)
+  {
+    $item = $this->item->find($id);
+
+    // if can't find item, redirect to index page
+    if (is_null($item))
+    {
+      return Redirect::route('items.index');
+    }
+
+    return View::make('items.edit', compact('item'));
+  }
+
+  public function update($id)
+  {
+    $input = array_except(Input::all(), '_method');
+    $v = Validator::make($input, Item::$rules);
+
+    if ($v->passes())
+    {
+      $item = $this->item->find($id);
+      $item->update($input);
+
+      return Redirect::route('items.index');
+    }
+
+    return Redirect::route('item.edit', $id)
+      ->withInput()
+      ->withErrors($v)
+      ->with('message', 'There were validation errors.');
   }
 }

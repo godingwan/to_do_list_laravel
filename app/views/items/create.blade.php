@@ -11,16 +11,17 @@
         {{ Form::text('title') }}
     </li>
 
-    <li>
-      {{ Form::submit('Submit', array('class' => 'btn')) }}
-    </li>
+    <div>
+      {{ Form::submit('Submit') }}
+      {{ link_to_route('items.index', 'Cancel') }}
+    </div>
   </ul>
 {{ Form::close() }}
 
 @if ($errors->any())
-  <ul>
-    {{ implode('', $errors->all('<li class="error">:message</li>')) }}
-  </ul>
+  <div>
+    {{ implode('', $errors->all(':message')) }}
+  </div>
 @endif
 
 @stop

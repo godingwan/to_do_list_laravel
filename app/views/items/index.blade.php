@@ -10,6 +10,7 @@
     <ol>
       @foreach($items as $item)
         <li>{{ $item->title }}</li>
+        <div>{{ link_to_route('items.edit', 'Edit', array($item->id)) }}</div>
       @endforeach
     </ol>
 
