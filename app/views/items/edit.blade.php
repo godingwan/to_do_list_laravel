@@ -5,20 +5,18 @@
 <h1>Edit Item</h1>
 
 {{ Form::model($item, array('method' => 'PATCH', 'route' => array('items.update', $item->id))) }}
-<ul>
-  <li>
+  <div>
     {{ Form::label('title', 'Item') }}
     {{ Form::text('title') }}
-  </li>
-  <li>
-    {{ Form::submit('Update') }}
-    {{ link_to_route('items.index', 'Cancel') }}
-  </li>
-</ul>
+  </div>
+  <div>
+    {{ Form::submit('Update', array('class' => 'btn btn-primary')) }}
+    <div class="btn btn-warning">{{ link_to_route('items.index', 'Cancel') }}</div>
+  </div>
 {{ Form::close() }}
 
 @if ($errors->any())
-  <div>
+  <div class="error">
     {{ implode('', $errors->all(':message')) }}
   </div>
 @endif
